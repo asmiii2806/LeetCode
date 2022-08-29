@@ -1,41 +1,38 @@
-
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
-//     CALLLING FUNCTION
     
-   // void addLeftSubtree(TreeNode* currentNode,stack<TreeNode* >&s)
-   //  {
-   //      s.push(currentNode);
-   //      while(currentNode->left!=NULL)
-   //      {
-   //          s.push(currentNode->left);
-   //           currentNode=currentNode->left;
-   //      }
-   //      return;
-   // } 
-    
-//     MAIN GIVEN FUNCTION
-    vector<int>inorderTraversal(TreeNode* root)
+    void inorderTree(TreeNode* root, vector<int>&ans)
     {
-        stack<TreeNode*>st;
-        vector<int>ans;
-        TreeNode *currentNode = root;
         if(root==NULL)
-            return ans;
+            return;
         
-        // addLeftSubtree(root,s);
-        while(true){
-            if(currentNode != NULL){
-                st.push(currentNode);
-                currentNode = currentNode->left;
-            }else{
-                if(st.empty() == true) break;
-                currentNode = st.top();
-                st.pop() ; // in case of q cn = q.front(); q.pop()
-                ans.push_back(currentNode->val);
-                currentNode = currentNode->right;
-            }
-        }
-        return ans;
+        inorderTree(root->left, ans);
+        ans.push_back(root->val);
+        inorderTree(root->right, ans);
+
+        return ;
+        
+        
+         
+    }
+    vector<int> inorderTraversal(TreeNode* root) 
+    {
+
+    vector<int>ans;
+    inorderTree(root, ans);
+        
+      return ans;  
+        
     }
 };
