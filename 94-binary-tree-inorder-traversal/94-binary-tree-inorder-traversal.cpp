@@ -16,15 +16,11 @@ public:
     {
         if(root==NULL)
             return;
-        
         inorderTree(root->left, ans);
         ans.push_back(root->val);
         inorderTree(root->right, ans);
 
-        return ;
-        
-        
-         
+        return ;         
     }
     vector<int> inorderTraversal(TreeNode* root) 
     {
