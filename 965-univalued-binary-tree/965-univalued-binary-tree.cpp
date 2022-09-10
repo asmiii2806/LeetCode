@@ -11,35 +11,26 @@
  */
 class Solution {
 public:
+    bool univalued(TreeNode* root, int val)
+    {
+        if(root==NULL)
+            return true;
+        if(root->val!=val)
+            return false;
+       
+        bool left=univalued(root->left,val);
+        bool right=univalued(root->right,val);
+        
+        
+            return left && right;
+        
+        return false;
+        
+    }
     bool isUnivalTree(TreeNode* root)
     {
-        queue<TreeNode*>q;
-        int requiredvalue=root->val;
-        q.push(root);
+        return univalued(root, root->val);
         
-        while(!q.empty()){
-                    TreeNode* currentNode = q.front();
-                q.pop();
-                
-            if(currentNode->val!=requiredvalue)
-            {
-                return false;
-            }
-
-                if(currentNode->left != NULL)
-                {
-                    q.push(currentNode->left);
-                }
-            
-                if(currentNode->right != NULL)
-                {
-                    q.push(currentNode->right);
-                }
-        }
-        
-        
-    return true;
-    
         
     }
 };
