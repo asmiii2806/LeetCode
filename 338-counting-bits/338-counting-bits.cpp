@@ -1,11 +1,13 @@
 class Solution {
 public:
     vector<int> countBits(int n) {
-        vector<int> dp(n+1);
-        dp[0] = 0;
-        for(int i =1; i<=n;i++){
-            dp[i] = dp[i/2]  + i%2;
+        vector<int> dp;
+        if(n == 0){
+            dp.push_back(0);
+            return dp;
         }
+        dp = countBits(n-1);
+        dp.push_back(dp[n/2] + n%2);
         return dp;
     }
 };
