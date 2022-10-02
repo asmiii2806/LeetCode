@@ -23,7 +23,7 @@ public:
        }
        for(int i=1; i<=k; i++)
        {
-           if(i<=targetsum)
+           // if(i<=targetsum)
            {
            int ans=totalways(n-1, k,targetsum-i);
                        ways=(ways%MOD+ans%MOD)%MOD;
