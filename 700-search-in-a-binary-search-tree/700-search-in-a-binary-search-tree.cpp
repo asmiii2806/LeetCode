@@ -11,8 +11,11 @@
  */
 class Solution {
 public:
-    TreeNode* searchBST(TreeNode* root, int val) {
-        if(root==NULL)
+  TreeNode* searchBST(TreeNode* root, int val)
+  {
+//       RECURSIVE APPROACH
+      
+       /* if(root==NULL)
             return 0;
         
         if(root->val==val)
@@ -24,7 +27,28 @@ public:
         else
             return searchBST(root->right, val);
     
-        
+    */
+      
+//         ITERATIVE APPROACH
+      
+      TreeNode* current=root;
+      
+      while(current!=NULL)
+      {
+          
+          if(current->val==val)
+              return current;
+          
+          if(current->val>val)
+              current=current->left;
+          
+          else
+                         current=current->right;
+   
+              
+      }
+      
+      return NULL;
 
     }
 };
