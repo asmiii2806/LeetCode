@@ -5,7 +5,6 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-  
   //calling function 
   void depthfirstsearch(int V, int currentvertex,vector<bool>&visited, vector<int>&ans,vector<int>adj[])
   {
@@ -14,14 +13,10 @@ class Solution {
       {
         return;
       }
-      
       visited[currentvertex]=true;          //if not true we wll make it true
-      
       ans.emplace_back(currentvertex);      //we will add currentvertex into our ans vector 
-      
-      vector<int>neighbors=adj[currentvertex];
-      
-      for(int currentneighbor:neighbors)
+      //vector<int>neighbors=adj[currentvertex];
+      for(int currentneighbor:adj[currentvertex])
       {
         depthfirstsearch(V,currentneighbor,visited,ans, adj);
       }
