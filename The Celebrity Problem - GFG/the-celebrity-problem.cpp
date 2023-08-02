@@ -9,24 +9,23 @@ using namespace std;
 
 class Solution 
 {
-    private:
+private:
     bool knows(vector<vector<int> >& M, int a, int b, int n) {
         if(M[a][b] == 1)
             return true;
         else
             return false;
     }
-    public:
-    //Function to find if there is a celebrity in the party or not.
+public:
     int celebrity(vector<vector<int> >& M, int n) 
     {
-                stack<int> s;
+        stack<int> s;
         //step1: push all element in stack
         for(int i=0; i<n; i++) {
             s.push(i);
         }   
         
-        //step2: get 2 elements and copare them
+        //step2: get 2 elements and coMpare them
         
         while(s.size() > 1) {
             
